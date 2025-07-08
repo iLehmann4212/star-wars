@@ -1,23 +1,31 @@
 import {useEffect, useState} from "react";
+import {base_url} from "../utils/constants.js";
 
 const OpeningCrawl = () => {
-    const [openingCrawl,setopeningCrawl]=useState('sdvcsdv')
+    const [openingCrawl, setOpeningCrawl] = useState();
+
     useEffect(() => {
-        const episode = Math.floor((Math.random()*6)+1);
-        fetch(`https://sw-info-api.herokuapp.com/v1/films/${episode}`)
+        const episode = Math.floor(Math.random() * 6) + 1;
+        fetch(`${base_url}/v1/films/${episode}`)
             .then(res => res.json())
-            .then(data => setopeningCrawl(data.opening_crawl));
-        return () => console.log('opening crawl was unmounted');
-    },[])
-    if(!openingCrawl){
+            .then(data => setOpeningCrawl(data.opening_crawl));
+        // return () => console.log('Opening crawl was unmounted');
+    }, [])
+
+    if (openingCrawl) {
         return (
             <p className="farGalaxy">{openingCrawl}</p>
         );
-    }else {
-        <p className={}>
-            <span> </span></p>
+    } else {
+        return (
+            <p className={'farGalaxy'}>
+                <span className="spinner-border spinner-border-sm"></span>
+                Loading...
+            </p>
+        );
     }
 
-};
+
+}
 
 export default OpeningCrawl;
