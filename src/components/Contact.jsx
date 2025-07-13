@@ -17,8 +17,8 @@ const Contact = () => {
         fetch(`${base_url}/v1/planets`)
             .then(res => res.json())
             .then(data => {
-                // const time = Date.now() + 1000 * 60 * 60 * 24 * 30;
-                const time = Date.now() + 1000 * 5;
+                // const time = Date.now() + 1000 * 5;
+                const time = Date.now() + + 1000 * 60 * 60 * 24 * 30;
                 localStorage.setItem('planets', JSON.stringify({ data, time}));
                 setPlanets(data);
             })
