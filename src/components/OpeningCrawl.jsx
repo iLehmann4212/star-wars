@@ -20,12 +20,12 @@ const OpeningCrawl = () => {
 
     if (openingCrawl) {
         return (
-            <p className="farGalaxy">{openingCrawl}</p>
+            <p className="text-[1.7em] text-justify leading[1.6]">{openingCrawl}</p>
         );
     } else {
         return (
-            <p className={'farGalaxy'}>
-                <span className="spinner-border spinner-border-sm"></span>
+            <p className={'text-[1.7em] text-justify leading[1.6]'}>
+                {/*<span className="spinner-border spinner-border-sm"></span>*/}
                 Loading...
             </p>
         );
